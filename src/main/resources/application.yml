@@ -1,0 +1,52 @@
+server:
+    port: 8080
+    servlet:
+        context-path: /example
+
+spring:
+    application:
+        name: example
+
+    # DB 설정
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: 1234
+        url: jdbc:mysql://127.0.0.1:3306/example
+        username: root
+    devtools:
+        livereload:
+            enabled: true
+        restart:
+            enabled: false
+
+    # jpa 설정
+    jpa:
+        database: mysql
+        hibernate:
+            ddl-auto: none
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                format_sql: true
+                show_sql: true
+
+    servlet:
+        multipart:
+            location: uploads/
+            max-file-size: 10MB
+
+# 토큰
+jwt:
+    issuer: hyeji111544@gmail.com
+    secret: 4XudNUpSmog3lwI9thJFejF7YfBBQnCI
+
+# cors 설정
+front:
+    url: 'http://localhost:3000'
+
+# 파일 업로드 설정
+file:
+    # 개발용
+    upload:
+        path: uploads/
