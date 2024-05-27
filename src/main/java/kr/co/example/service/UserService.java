@@ -59,21 +59,7 @@ public class UserService {
         List<UserDTO> userDTOList = userList.stream()
                 .map(user ->  {
                     UserDTO userDTO = modelMapper.map(user, UserDTO.class);
-                    String userImgInfo = String.valueOf(fileUtil.getFile(user.getUserImg()));
-
-
-                    // 정규 표현식 패턴 설정
-                    String pattern = "\\[([^\\]]+)\\]";
-                    Pattern r = Pattern.compile(pattern);
-
-                    Matcher m = r.matcher(userImgInfo);
-                    if (m.find()) {
-                        // 파일 경로를 추출하여 변수에 저장
-                        String userImg = m.group(1);
-                        System.out.println(userImg); // 결과 출력
-                        userDTO.setUserImg(userImg);
-                    }
-
+                    log.info(userDTO.toString());
                     return userDTO;
                 })
                 .toList();

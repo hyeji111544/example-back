@@ -26,6 +26,9 @@ public class CustomFileUtil {
     @Value("${file.upload.path}")
     private String uploadPath;
 
+    @Value("${http://localhost:8080}")
+    private String url;
+
     @PostConstruct
     public void init() {
         File tempFolder = new File(uploadPath);
